@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>數學運算</title>
+</head>
+<body>
+
+<h1>數學運算</h1>
+
+<p>
+  x：<input type="number" id="x">
+</p>
+
+<p>
+  運算：
+  <select id="op">
+    <option value="+">加 (+)</option>
+    <option value="-">減 (-)</option>
+    <option value="*">乘 (×)</option>
+    <option value="/">除 (÷)</option>
+  </select>
+</p>
+
+<p>
+  y：<input type="number" id="y">
+</p>
+
+<button onclick="calculate()">計算</button>
+
+<h2 id="result">結果會顯示在這裡</h2>
+
+<script>
+function calculate() {
+  let x = parseFloat(document.getElementById("x").value);
+  let y = parseFloat(document.getElementById("y").value);
+  let op = document.getElementById("op").value;
+  let result;
+
+  if (op === "+") {
+    result = x + y;
+  } else if (op === "-") {
+    result = x - y;
+  } else if (op === "*") {
+    result = x * y;
+  } else if (op === "/") {
+    if (y === 0) {
+      result = "❌ 不能除以 0";
+    } else {
+      result = x / y;
+    }
+  }
+
+  document.getElementById("result").innerText = "結果: " + result;
+}
+</script>
+
+</body>
+</html>
