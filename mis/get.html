@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>GET傳值</title>
+
+  <style>
+    .title {
+      color: blue;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      color: black;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="output"></div>
+
+<script>
+  // 取得網址參數
+  const params = new URLSearchParams(window.location.search);
+
+  const name = params.get("name");
+  const school = params.get("school");
+
+  document.getElementById("output").innerHTML = `
+    <div class="title">歡迎 ${name} 蒞臨</div>
+    <div class="subtitle">您就讀 ${school}</div>
+  `;
+</script>
+
+</body>
+</html>

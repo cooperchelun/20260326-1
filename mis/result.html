@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>結果頁</title>
+</head>
+<body>
+
+<h1>您輸入的資料</h1>
+
+<p id="output"></p>
+
+<script>
+  // 用 FormData 取得資料（模擬 POST）
+  const formData = new URLSearchParams(window.location.search);
+
+  const username = formData.get("username");
+  const password = formData.get("password");
+
+  document.getElementById("output").innerText =
+    "帳號：" + username + "，密碼：" + password;
+</script>
+
+</body>
+</html>
