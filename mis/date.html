@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>今天日期</title>
+</head>
+<body>
+
+<h1>今天日期</h1>
+
+<h2 id="today"></h2>
+
+<p>
+  <a href="index.html">⬅ 返回首頁</a>
+</p>
+
+<script>
+  const today = new Date();
+
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
+  const date = today.getDate();
+
+  document.getElementById("today").innerText =
+    "今天是：" + year + "年" + month + "月" + date + "日";
+</script>
+
+</body>
+</html>

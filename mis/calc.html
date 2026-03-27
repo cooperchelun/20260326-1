@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>計算機</title>
+</head>
+<body>
+
+<h1>次方與根號計算</h1>
+
+<p>
+  x: <input type="number" id="x">
+</p>
+
+<p>
+  運算：
+  <select id="opt">
+    <option value="power">次方 (x^y)</option>
+    <option value="root">開根號 (x^(1/y))</option>
+  </select>
+</p>
+
+<p>
+  y: <input type="number" id="y">
+</p>
+
+<button onclick="calculate()">計算</button>
+
+<h2 id="result">結果會顯示在這裡</h2>
+
+<script>
+function calculate() {
+  let x = parseFloat(document.getElementById("x").value);
+  let y = parseFloat(document.getElementById("y").value);
+  let opt = document.getElementById("opt").value;
+
+  let result;
+
+  if (opt === "power") {
+    result = Math.pow(x, y);
+  } else if (opt === "root") {
+    result = Math.pow(x, 1 / y);
+  }
+
+  document.getElementById("result").innerText = "結果: " + result;
+}
+</script>
+
+</body>
+</html>
