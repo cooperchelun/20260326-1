@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>靜宜資管老師查詢</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    hr {
+      margin: 15px 0;
+    }
+
+    .result {
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .name {
+      color: blue;
+      font-weight: bold;
+    }
+
+    a {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+
+<h1>靜宜資管老師查詢</h1>
+
+<p>
+  請輸入老師姓名關鍵字：
+  <input type="text" id="keyword">
+  <button onclick="search()">查詢</button>
+</p>
+
+<hr>
+
+<h3 id="title">查詢結果：</h3>
+
+<div id="result"></div>
+
+<br>
+<a href="index.html">返回首頁</a>
+
+<script>
+let teachers = [
+  {name: "楊子青3", lab: "999"},
+  {name: "楊子青", lab: "579"},
+  {name: "楊子青2", lab: "579"}
+];
+
+function search() {
+  let keyword = document.getElementById("keyword").value;
+  let resultHTML = "";
+
+  document.getElementById("title").innerText =
+    "查詢結果（關鍵字：" + keyword + "）：";
+
+  for (let i = 0; i < teachers.length; i++) {
+    if (teachers[i].name.includes(keyword)) {
+      resultHTML += `
+        <div class="result">
+          <span class="name">${teachers[i].name}</span>
+          老師的研究室在 <b>${teachers[i].lab}</b>
+        </div>
+      `;
+    }
+  }
+
+  if (resultHTML === "") {
+    resultHTML = "<div class='result'>❌ 查無資料</div>";
+  }
+
+  document.getElementById("result").innerHTML = resultHTML;
+}
+</script>
+
+</body>
+</html>
